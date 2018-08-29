@@ -1,0 +1,34 @@
+#playbook.yml
+
+#ad hoc tasks
+
+#ping all host in the host file
+ansible all -m ping 
+
+#on a centOS host install httpd service
+ansible foo.example.com -m yum -a "name=httpd state=installed"
+
+#reboot the host
+ansible foo.example.com -a "/usr/sbin/reboot"
+
+#<---------->
+
+#playbook
+#the three dashes define this as a yaml file
+---
+-name: install and restart apache
+ host: web
+ remote_user: smitty
+ become_method: sudo
+ become_user: root 
+ vars:
+  http_port: 80
+
+tasks:
+ -name: install httpd
+  yum:  name=httpd state=latest
+
+ -name: restart apache
+  service: name=httpd state=restart
+
+#look for check mode
