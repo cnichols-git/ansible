@@ -1,0 +1,19 @@
+---
+
+##
+# To run this do the following
+# ansible-playbook <name of playbookfile.yml>
+# 
+# This is meant to be run on the localhost
+#
+
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local
+    tasks:
+
+    - name: "just execute a ls -lrt command"
+      shell: "ls -lrt"
+      register: "output"
+
+    - debug: var=output.stdout_lines
