@@ -7,13 +7,27 @@
 # This is meant to be run on the localhost
 #
 
-  - name: "Playing with Ansible and Git"
+
+  - name: "Playing with commands"
     hosts: localhost
     connection: local
     tasks:
 
-    - name: "just execute a ls -lrt command"
-      shell: "ls -lrt"
-      register: "output"
+      - name: "runing ls -als to play with ansible"
+        shell: "ls -als"
+        register: "output"
 
-    - debug: var=output.stdout_lines
+      - debug: var=output.stdout_lines
+
+      - name: "adding a banner at login"
+        copy:
+          content: This is a banner
+          dest: /etc/issue
+
+      - name: "append the sshd_config file"
+        become: yes
+        become_user: root
+
+        blockinfile:
+          path: /etc/ssh/sshd_config
+
