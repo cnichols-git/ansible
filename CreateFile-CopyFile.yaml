@@ -1,0 +1,22 @@
+---
+
+#This playbook will create a config file and copy it to the proper location. 
+
+#Step 1. Remove exisiting config file for cups printing
+#Step 2. Add a new file with content
+#
+
+- hosts: all
+  tasks:
+  - name: Removing a file
+    file:
+      path: "/etc/cups/client.conf"
+      state: absent
+      
+- hosts: all
+  tasks:
+  - name: Creating a file with content
+    copy:
+      dest: "/etc/cups/"
+      content: |
+        ServerName LinuxPrintServer
