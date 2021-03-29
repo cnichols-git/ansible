@@ -15,6 +15,6 @@ you can create a variable in the /etc/ansible/hosts file
 
 **Generating ssh keys**
 - create the public and private keys ssh-keygen -t rsa 
-- ssh-copy-id <name of system>
+- ssh-copy-id /<name of system/>
 
 **Next**
