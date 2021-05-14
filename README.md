@@ -1,6 +1,5 @@
 ## Ansible
 
-<<<<<<< HEAD
 First install ansible on a management server/workstation
 
 **You need python, of course
@@ -93,7 +92,6 @@ A handler is only going to run if the notify option is called
 List of all the thing to get start, that I always refference
 =======
 List of all the things I need to get started with some lab fun/learning
->>>>>>> 880311106ae8d6975bb52cb093635d657829bde2
 
 **Run a playbook locally**
 - ansible-playbook playbook.yml --connection=local
@@ -109,5 +107,3 @@ you can create a variable in the /etc/ansible/hosts file
 **Generating ssh keys**
 - create the public and private keys ssh-keygen -t rsa 
 - ssh-copy-id \<name of system\>
-
-**Next**
