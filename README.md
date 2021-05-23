@@ -94,7 +94,8 @@ List of all the thing to get start, that I always refference
 List of all the things I need to get started with some lab fun/learning
 
 **Run a playbook locally**
-- ansible-playbook playbook.yml --connection=local
+- ansible-playbook --connection=local playbook.yml
+	if you run this as is it will run on all systems in /etc/ansible/hosts
 
 **To run a playbook without the --connection flag**
 
