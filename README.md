@@ -23,8 +23,6 @@ If you change the location of the ansible config files ensure that you have chan
 
 ex. #inventory      = /etc/ansible/hosts (you may choose to have = /scratch/automation/ansible_hosts)
 
-# ===============================================
-
 idempotent - element of a set which is unchanged in value when multiplied or otherwise operated on by itself.
 -b - become
 -m - module
