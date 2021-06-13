@@ -21,7 +21,7 @@ Copy key to the server
 
 If you change the location of the ansible config files ensure that you have changed the ansible.cfg to point to the correct location.
 
-ex. #inventory      = /etc/ansible/hosts (you may choose to have = /scratch/automation/ansible_hosts)
+`ex. #inventory      = /etc/ansible/hosts (you may choose to have = /scratch/automation/ansible_hosts)`
 
 idempotent - element of a set which is unchanged in value when multiplied or otherwise operated on by itself.
 -b - become
@@ -40,19 +40,19 @@ ex.
 ansible <hostname> -m setup -a filter=*ipv4* | ansible <hostname> -m setup -a filter=*hostname*
 gather_facts: no - this will disable fact and no longer auto gather facts
 
-## Adhoc Commands
+## Adhoc Commands ##
 
-# how to get past a password prompt
+# how to get past a password prompt #
 ansible all -m ping --ask-pass 
 ansible -m ping all
 
-# Ping a specific host
+# Ping a specific host #
 ansible ansible-client -m ping
 
-# how to get past a password prompt
+# how to get past a password prompt #
 ansible-playbook myplaybook.yml --ask-pass
 
-# prints host name of all host in the hosts folder 
+# prints host name of all host in the hosts folder #
 ansible -m shell -a 'hostname' all
 
 not sure what I am doing here?
