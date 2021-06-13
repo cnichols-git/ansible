@@ -40,18 +40,18 @@ gather_facts: no - this will disable fact and no longer auto gather facts
 
 ## Adhoc Commands
 
-* how to get past a password prompt 
-ansible all -m ping --ask-pass 
-ansible -m ping all
+**how to get past a password prompt**  
+* ansible all -m ping --ask-pass 
+* ansible -m ping all
 
-* Ping a specific host 
-ansible ansible-client -m ping
+**Ping a specific host**  
+* ansible ansible-client -m ping
 
-* how to get past a password prompt 
-ansible-playbook myplaybook.yml --ask-pass
+**how to get past a password prompt**  
+* ansible-playbook myplaybook.yml --ask-pass
 
-* prints host name of all host in the hosts folder 
-ansible -m shell -a 'hostname' all
+**prints host name of all host in the hosts folder**  
+* ansible -m shell -a 'hostname' all
 
 not sure what I am doing here?
 ansible <hostname> -m setup
@@ -59,7 +59,7 @@ ansible <hostname> -m setup | less
 
 
 
-starting httpd - ansible <hostname> -b -m service -a “name=httpd state=”started”
+starting httpd - ansible <hostname> -b -m service -a “name=httpd state=”started”  
 
 Troubleshoot and Debug
 msg - a message that is printed to stdout
