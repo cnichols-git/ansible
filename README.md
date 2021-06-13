@@ -1,8 +1,6 @@
 ## Ansible ##
 
-First install ansible on a management server/workstation
-
-**You need python, of course
+First install ansible on a management server/workstation  
 
 RHEL:  
 `#dnf install ansible`
@@ -40,19 +38,19 @@ ex.
 ansible <hostname> -m setup -a filter=*ipv4* | ansible <hostname> -m setup -a filter=*hostname*
 gather_facts: no - this will disable fact and no longer auto gather facts
 
-## Adhoc Commands ##
+## Adhoc Commands
 
-# how to get past a password prompt #
+* how to get past a password prompt 
 ansible all -m ping --ask-pass 
 ansible -m ping all
 
-# Ping a specific host #
+* Ping a specific host 
 ansible ansible-client -m ping
 
-# how to get past a password prompt #
+* how to get past a password prompt 
 ansible-playbook myplaybook.yml --ask-pass
 
-# prints host name of all host in the hosts folder #
+* prints host name of all host in the hosts folder 
 ansible -m shell -a 'hostname' all
 
 not sure what I am doing here?
