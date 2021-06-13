@@ -1,23 +1,23 @@
-##Ansible
+## Ansible ##
 
 First install ansible on a management server/workstation
 
 **You need python, of course
 
 RHEL:
-#dnf install ansible
+`#dnf install ansible`
 
 Ubuntu:
-# sudo apt update
+`# sudo apt update
 # sudo apt install software-properties-common
 # sudo apt-add-repository --yes --update ppa:ansible/ansible
-# sudo apt install ansible
+# sudo apt install ansible`
 
 Generate an SSH key
-# ssh -keygen
+`# ssh -keygen`
 
 Copy key to the server
-# ssh-copy-id <name of host or ip> 
+` ssh-copy-id <name of host or ip>`
 
 If you change the location of the ansible config files ensure that you have changed the ansible.cfg to point to the correct location.
 
