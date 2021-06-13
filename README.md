@@ -4,10 +4,10 @@ First install ansible on a management server/workstation
 
 **You need python, of course
 
-RHEL:
+RHEL:  
 `#dnf install ansible`
 
-Ubuntu:
+Ubuntu:  
 `# sudo apt update`  
 `# sudo apt install software-properties-common`  
 `# sudo apt-add-repository --yes --update ppa:ansible/ansible`  
