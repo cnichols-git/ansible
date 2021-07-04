@@ -1,0 +1,31 @@
+---
+
+##
+# To run this do the following
+# ansible-playbook <name of playbookfile.yml>
+#
+# To generate the encrypted password
+# python3 -c "import crypt;print(crypt.crypt(input('clear-text pw: '), crypt.mksalt(crypt.METHOD_SHA512)))"
+
+
+- name: test
+  hosts: mainserver
+  tasks:
+
+    - name: test
+      lineinfile:
+        path: /tmp/testfile
+        line: "foo"
+        state: present
+
+    - name: add user
+      user:
+        name: jsmith
+        password: $6$a2LKJQEAugCiQXnR$ACSPeu/yRkD8JMIK1Uzi4XSIw5DY.N5Dg8NOJ0N4g.0q92s1IHE3V9XolQIAr4BZByrUWVtZEZpttZ0B/RO7s0
+        comment: john smith
+        groups:
+          - docker
+          - sudo
+        state: present
+        shell: /bin/bash      #defualts to /bin/bash
+

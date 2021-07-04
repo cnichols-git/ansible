@@ -131,8 +131,22 @@ module < yum >
 - name: Install a list of packages  
   yum:  
     name:  
-      - nginx  
+      - git 
       - postgresql  
       - postgresql-server  
     state: present  
-	s
+
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+	
+module < user >
+- name: Added a user and set perameters
+  user:
+    name: jsmith
+    shell: /bin/bash
+    groups: developer
+	home: /home/jsmith
+	password: 123pswd
+    
