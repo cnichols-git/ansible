@@ -120,3 +120,19 @@ you can create a variable in the /etc/ansible/hosts file
 - user
 - wait_for
 - asset
+
+module < yum >  
+
+- name: install the 'Gnome desktop' environment group  
+  yum:  
+    name: "@^gnome-desktop-environment"  
+    state: present  
+
+- name: Install a list of packages  
+  yum:  
+    name:  
+      - nginx  
+      - postgresql  
+      - postgresql-server  
+    state: present  
+	s
