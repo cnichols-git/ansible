@@ -103,3 +103,20 @@ you can create a variable in the /etc/ansible/hosts file
 
 **Generating ssh keys**
 - create the public and private keys ssh-keygen -t rsa 
+
+## Modules
+
+- apt/yum
+- copy
+- file
+- get_url
+- git
+- ping
+- debug
+- service
+- syncronize
+- template
+- uri
+- user
+- wait_for
+- asset
