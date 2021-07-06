@@ -85,10 +85,6 @@ handlers:
 A handler is only going to run if the notify option is called
 
 
-List of all the thing to get start, that I always refference
-=======
-List of all the things I need to get started with some lab fun/learning
-
 **Run a playbook locally**
 - ansible-playbook --connection=local playbook.yml
 	if you run this as is it will run on all systems in /etc/ansible/hosts
@@ -103,6 +99,31 @@ you can create a variable in the /etc/ansible/hosts file
 
 **Generating ssh keys**
 - create the public and private keys ssh-keygen -t rsa 
+
+
+## Variables
+
+There are 16 levels of Variable Precedence
+- Etra vars ... Role Defaults
+
+Variables: 
+file: A directory should exist  
+yum: A package should be installed  
+service: Aservice should be running  
+template: Render a config file from a template  
+get_url: Fetch an archive file from a URL  
+git: Clone a source code repository  
+
+
+### Handlers  
+handlers trigger at the end of a play  
+
+handerls: 
+  -name: restart nginx  
+    service: 
+      name: nginx  
+      state: restarted  
+
 
 ## Modules
 
@@ -149,4 +170,54 @@ module < user >
     groups: developer
 	home: /home/jsmith
 	password: 123pswd
-    
+
+## Roles  
+wrap templates up in a role
+
+
+## Template
+
+---
+- name: play name  
+  hosts: web  
+  vars: 
+    http_port:80
+  remote_user: root
+
+tasks: 
+- name:
+  yum: pkg=httpd state=latest
+- name:
+  template: src=/location/of/source/file dest=/etc/httpd.conf
+- name:
+  service: name=httpd state=started
+
+  ### ------------
+This will run from top to bottom
+
+  ---
+  - name: install and start apache
+    hosts: webservers
+    remote_user: vagrant
+    become: yes
+
+tasks:
+- name: install epel repo
+  yum: name=epel-release state=present
+
+-name: insatll python bindings for SELinux
+ yum: name={{item}} state=present
+ with_items: 
+ - liblinux-python  
+ - libsemanage-python  
+
+- name: test to see if SELinux is running
+  command: getenforce
+  register: sestatus
+  changed_when: false
+
+-name: install apache 
+ yum: name=httpd stat=present
+
+-name: start apache
+ service: name=https state=started enabled=yes 
