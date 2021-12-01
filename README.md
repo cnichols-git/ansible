@@ -1,4 +1,3 @@
-test
 ## Ansible ##
 
 First install ansible on a management server/workstation  
