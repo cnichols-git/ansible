@@ -1,0 +1,19 @@
+---
+- name: download vscode and install
+  hosts: localhost
+
+  tasks:
+
+   - name: download vscode
+     yum:
+       name: "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64"
+       state: present
+
+   - name: rename downloaded file
+     command: mv /tmp/code*.rpm /code.rpm
+
+   - name: Install package
+     become: yes
+     yum:
+       name: code.rpm
+       state: present
