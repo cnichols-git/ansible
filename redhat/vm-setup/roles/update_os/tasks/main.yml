@@ -1,0 +1,15 @@
+- name: Update all installed packages using dnf module
+    dnf:
+      name: 'Updates'
+      state: latest
+      update_cache: yes
+      update_only: yes
+    register: dnf_update_status
+
+  - name: Remove packates not needed anymore
+    dnf:
+      autoremove: yes
+
+  - name: Reboot when packages were updated
+    reboot:
+    when: dnf_update_status.changed
