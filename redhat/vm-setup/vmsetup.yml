@@ -1,0 +1,21 @@
+---
+# cnichols paly to set up a fresh image with the software need to have Oracle Virtualbox guest extensions
+
+- name: Oracle VM software set up
+  hosts: main
+
+-  name: Install list of packages
+   dnf: dnf install tar bzip2 kernel-devel-$(uname -r) kernel-headers perl gcc make elfutils-libelf-devel
+     name: 
+     state: present
+
+- name: Ensure epel repo present
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+
+  become: true
+   
+  
+
+...
