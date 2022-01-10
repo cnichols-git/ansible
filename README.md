@@ -11,11 +11,7 @@ Ubuntu:
 `# sudo apt-add-repository --yes --update ppa:ansible/ansible`  
 `# sudo apt install ansible`
 
-Generate an SSH key
-`# ssh -keygen`
-
-Copy key to the server
-`ssh-copy-id <name of host or ip>`
+[How to set up SSH key sharing](https://github.com/cnichols-git/ansible/tree/master/notes/ssh_setup.md)
 
 If you change the location of the ansible config files ensure that you have changed the ansible.cfg to point to the correct location.
 
