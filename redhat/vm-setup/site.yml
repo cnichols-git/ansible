@@ -1,0 +1,24 @@
+---
+
+- hosts: lab
+  become: true
+  pre_tasks:
+
+  - name: update repository index (CentOS)
+    tags: always
+    dnf:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "RedHat"
+
+- hosts: lab
+  become: true
+  roles: 
+    - enable_epel
+
+- hosts: lab
+  become: true
+  roles:
+    - update_os
+
+...
