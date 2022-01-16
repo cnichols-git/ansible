@@ -1,24 +1,24 @@
 ---
 
-- hosts: lab
+- hosts: 10.0.0.30
   become: true
   pre_tasks:
 
-  - name: update repository index (CentOS)
+  - name: update repository index
     tags: always
-    dnf:
+    yum:
       update_cache: yes
     changed_when: false
     when: ansible_distribution == "RedHat"
 
-- hosts: lab
+- hosts: 10.0.0.30
   become: true
   roles: 
-    - enable_epel
+    - epel
 
-- hosts: lab
-  become: true
-  roles:
-    - update_os
+# - hosts: 10.0.0.30
+#   become: true
+#   roles:
+#     - update_os
 
 ...

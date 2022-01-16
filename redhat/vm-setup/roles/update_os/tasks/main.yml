@@ -1,15 +1,19 @@
-- name: Update all installed packages using dnf module
-    dnf:
-      name: 'Updates'
+#ansible all -m yum -a update_cache=true --become --ask-become-pass
+
+- name: Update all installed packages using yum module
+    yum:
+      name: 'Update cache'
       state: latest
       update_cache: yes
       update_only: yes
-    register: dnf_update_status
+    register: yum_update_status
 
-  - name: Remove packates not needed anymore
-    dnf:
+  - name: Remove packages not needed anymore
+    yum:
       autoremove: yes
 
   - name: Reboot when packages were updated
     reboot:
-    when: dnf_update_status.changed
+    when: yum_update_status.changed
+
+    

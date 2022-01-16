@@ -20,4 +20,17 @@ Links to the following :
 
 **Run a playbook locally**
 - ansible-playbook --connection=local playbook.yml
-	if you run this as is it will run on all systems in /etc/ansible/hosts  
+
+You can over ride an /etc/ansible/ansible.cfg file if you make a local config file of the same name. Also ensure that if you specify an inventory file that you add one in this location also.
+
+<pre>[defaults]  
+inventory = inventory
+private_key_file = ~/.ssh/ansible</pre>
+
+/project/ansible.cfg  
+/project/inventory  
+/project/site.yml  
+/project/roles/  
+roles/update_os/main.yml
+roles/software_install/main.yml  
+

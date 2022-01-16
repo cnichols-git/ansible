@@ -14,3 +14,5 @@
 * ansible -m shell -a 'hostname' all
 
 starting httpd - ansible <hostname> -b -m service -a “name=httpd state=”started”  
+
+ansible all -m yum -a update_cache=true --become --ask-become-pass
