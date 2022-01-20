@@ -1,0 +1,4 @@
+- name: run updates on RedHat Operating system
+  yum:
+    name: '*'
+    state: latest 

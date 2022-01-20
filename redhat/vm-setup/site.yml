@@ -16,9 +16,15 @@
   roles: 
     - epel
 
+- hosts: 10.0.0.30
+  become: true
+  roles: 
+    - virtualbox_software
+
 # - hosts: 10.0.0.30
 #   become: true
 #   roles:
 #     - update_os
+
 
 ...

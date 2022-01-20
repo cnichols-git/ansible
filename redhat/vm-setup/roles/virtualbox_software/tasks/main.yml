@@ -1,0 +1,37 @@
+- name: installing kernel-devel 
+  yum:
+    name: kernel-devel
+    state: present
+
+- name: installing kernel-headers 
+  yum:
+    name: kernel-headers
+    state: present
+
+- name: installing perl
+  yum:
+    name: perl
+    state: present
+
+- name: installing gcc
+  yum:
+    name: gcc
+    state: present
+
+- name: installing dkms 
+  yum:
+    name: dkms
+    state: present
+
+- name: updating the kernel
+  yum:
+    name: kernel-*
+    state: latest
+
+- name: Upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: Reboot the machine
+  reboot:
