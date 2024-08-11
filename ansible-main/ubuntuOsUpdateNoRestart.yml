@@ -1,0 +1,14 @@
+---
+
+# to gather facts on what ansible calls the ansible_distribution run:
+# ansible 10.0.0.43 -m gather_facts | grep ansible_distribution
+
+  - hosts: home
+    gather_facts: yes
+    become: yes
+
+    tasks:
+      - name: Perform a dist-upgrade.
+        ansible.builtin.apt:
+          upgrade: yes
+          update_cache: yes
