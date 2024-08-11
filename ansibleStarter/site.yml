@@ -1,8 +1,0 @@
----
-- name: Install web server
-  hosts: all
-  remote_user: root
-
-  tasks:
-    - name: set up server
-        ansible.builtin.apt
