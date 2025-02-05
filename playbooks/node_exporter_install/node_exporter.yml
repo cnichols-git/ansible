@@ -1,0 +1,30 @@
+---
+- hosts: lab
+  gather_facts: yes
+  become: true
+
+  tasks:
+
+  - name: Check to see if node_exporter exist
+    stat:
+      path: /tmp/node_exporter-1.8.2.darwin-amd64.tar.gz 
+    register: test
+
+  - name: Get node_exporter from website
+    get_url:
+      url: https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.darwin-amd64.tar.gz
+      dest: /tmp/
+    when: test.stat.exists == false 
+
+  - name: Extract file
+    unarchive:
+      src: https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.darwin-amd64.tar.gz
+      dest: /tmp/
+      remote_src: yes
+
+  # - name: Unarchive a file that needs to be downloaded (added in 2.0)
+  #   ansible.builtin.unarchive:
+  #     src: https://example.com/example.zip
+  #     dest: /usr/local/bin
+  #     remote_src: yes
+
