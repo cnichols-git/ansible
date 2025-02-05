@@ -20,5 +20,5 @@
       state: latest
     when: ansible_distribution == 'Rocky'
 
-  roles:
-    - ansible-role-node_exporter 
+  # roles:
+  #   - ansible-role-node_exporter 
