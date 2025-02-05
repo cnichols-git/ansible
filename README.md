@@ -1,7 +1,7 @@
 All Things Ansible!
 
 Simple template for creating a play
-
+```
 - name: Install MariaDB on Ubuntu
   hosts: node1
   become: true
@@ -12,8 +12,8 @@ Simple template for creating a play
       apt:
         name: mariadb-server
         state: present
-
-
+```
+```
 - name: Host Basic Apache Website
   hosts: node1
   become: true
@@ -31,3 +31,4 @@ Simple template for creating a play
         name: apache2
         state: restarted
         enabled: true
+```
